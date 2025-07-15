@@ -1,0 +1,83 @@
+/* ------- Paleta ------- */
+:root{
+  --mor: #6a0dad;       /* morado principal */
+  --mor-light:#b18be6;  /* hover/activo */
+  --gray:#e4e4e4;
+  --white:#fff;
+  --black:#111;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:system-ui,sans-serif;
+  background:#fafafa;
+  color:var(--black);
+  padding:1rem;
+  line-height:1.35;
+}
+
+header{text-align:center;margin-bottom:2rem}
+header h1{color:var(--mor);margin-bottom:.25rem}
+
+/* ------- Grid ------- */
+#grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ------- Semestre ------- */
+.semester{
+  grid-column:1/-1;
+  font-weight:bold;
+  font-size:1.25rem;
+  margin:1.2rem 0 .3rem;
+  color:var(--mor);
+}
+
+/* ------- Caja curso ------- */
+.course{
+  border:2px solid var(--mor);
+  border-radius:.7rem;
+  padding:.8rem .6rem;
+  background:var(--white);
+  position:relative;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.course.disabled{
+  cursor:not-allowed;
+  background:var(--gray);
+  color:#666;
+  opacity:.65;
+}
+
+.course:hover:not(.disabled){
+  background:var(--mor-light);
+  color:var(--white);
+}
+
+.course.approved{
+  background:var(--mor);
+  color:var(--white);
+}
+
+.course .code{
+  display:block;
+  font-size:.75rem;
+  opacity:.8;
+}
+
+.course .tick{
+  position:absolute;
+  top:.45rem;
+  right:.55rem;
+  font-weight:bold;
+  display:none;
+}
+
+.course.approved .tick{display:block}
